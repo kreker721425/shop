@@ -15,6 +15,7 @@ public class ProductOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Long id;
     private Long productId;
     private Long orderId;
     private Long count;
@@ -22,19 +23,36 @@ public class ProductOrder implements Serializable {
     public ProductOrder() {}
 
     public ProductOrder(ProductOrder value) {
+        this.id = value.id;
         this.productId = value.productId;
         this.orderId = value.orderId;
         this.count = value.count;
     }
 
     public ProductOrder(
+        Long id,
         Long productId,
         Long orderId,
         Long count
     ) {
+        this.id = id;
         this.productId = productId;
         this.orderId = orderId;
         this.count = count;
+    }
+
+    /**
+     * Getter for <code>shop.product_order.id</code>.
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Setter for <code>shop.product_order.id</code>.
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -83,7 +101,8 @@ public class ProductOrder implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ProductOrder (");
 
-        sb.append(productId);
+        sb.append(id);
+        sb.append(", ").append(productId);
         sb.append(", ").append(orderId);
         sb.append(", ").append(count);
 

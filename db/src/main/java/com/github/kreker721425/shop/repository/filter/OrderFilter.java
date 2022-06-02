@@ -1,17 +1,17 @@
 package com.github.kreker721425.shop.repository.filter;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
+@Builder
 public class OrderFilter extends Filter {
-    private List<String> id = new ArrayList<>();
-    private List<String> clientName = new ArrayList<>();
+    private String id;
+    private String clientName;
     private LocalDate createdAtStart;
     private LocalDate createdAtEnd;
 }

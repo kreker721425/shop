@@ -51,24 +51,24 @@ public class Order extends TableImpl<OrderRecord> {
     }
 
     /**
-     * The column <code>shop.order.id</code>. Идентификатор заказа
+     * The column <code>shop.order.id</code>. Идентификатор
      */
-    public final TableField<OrderRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор заказа");
+    public final TableField<OrderRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор");
 
     /**
-     * The column <code>shop.order.created_at</code>. Время создания заказа
+     * The column <code>shop.order.created_at</code>. Время создания
      */
-    public final TableField<OrderRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(6).defaultValue(DSL.field("now()", SQLDataType.LOCALDATETIME)), this, "Время создания заказа");
+    public final TableField<OrderRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(6).defaultValue(DSL.field("now()", SQLDataType.LOCALDATETIME)), this, "Время создания");
 
     /**
-     * The column <code>shop.order.price</code>. Стоимость заказа
+     * The column <code>shop.order.price</code>. Стоимость
      */
-    public final TableField<OrderRecord, BigDecimal> PRICE = createField(DSL.name("price"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Стоимость заказа");
+    public final TableField<OrderRecord, BigDecimal> PRICE = createField(DSL.name("price"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Стоимость");
 
     /**
-     * The column <code>shop.order.client_id</code>. Идентификатор клиента заказа
+     * The column <code>shop.order.client_id</code>. Идентификатор клиента
      */
-    public final TableField<OrderRecord, Long> CLIENT_ID = createField(DSL.name("client_id"), SQLDataType.BIGINT.nullable(false), this, "Идентификатор клиента заказа");
+    public final TableField<OrderRecord, Long> CLIENT_ID = createField(DSL.name("client_id"), SQLDataType.BIGINT.nullable(false), this, "Идентификатор клиента");
 
     /**
      * The column <code>shop.order.bonus_count</code>. Количество бонусных баллов за заказ

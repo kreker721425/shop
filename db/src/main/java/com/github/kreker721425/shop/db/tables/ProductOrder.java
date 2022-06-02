@@ -13,13 +13,15 @@ import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row3;
+import org.jooq.Row4;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
@@ -45,6 +47,11 @@ public class ProductOrder extends TableImpl<ProductOrderRecord> {
     public Class<ProductOrderRecord> getRecordType() {
         return ProductOrderRecord.class;
     }
+
+    /**
+     * The column <code>shop.product_order.id</code>.
+     */
+    public final TableField<ProductOrderRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>shop.product_order.product_id</code>. Идентификатор продукта
@@ -100,6 +107,21 @@ public class ProductOrder extends TableImpl<ProductOrderRecord> {
     }
 
     @Override
+    public Identity<ProductOrderRecord, Long> getIdentity() {
+        return (Identity<ProductOrderRecord, Long>) super.getIdentity();
+    }
+
+    @Override
+    public UniqueKey<ProductOrderRecord> getPrimaryKey() {
+        return Keys.PRODUCT_ORDER_ID_PK;
+    }
+
+    @Override
+    public List<UniqueKey<ProductOrderRecord>> getKeys() {
+        return Arrays.<UniqueKey<ProductOrderRecord>>asList(Keys.PRODUCT_ORDER_ID_PK);
+    }
+
+    @Override
     public List<ForeignKey<ProductOrderRecord, ?>> getReferences() {
         return Arrays.<ForeignKey<ProductOrderRecord, ?>>asList(Keys.PRODUCT_ORDER__PRODUCT_ID__FK, Keys.PRODUCT_ORDER__ORDER_ID__FK);
     }
@@ -148,11 +170,11 @@ public class ProductOrder extends TableImpl<ProductOrderRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row3 type methods
+    // Row4 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Long, Long, Long> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Row4<Long, Long, Long, Long> fieldsRow() {
+        return (Row4) super.fieldsRow();
     }
 }

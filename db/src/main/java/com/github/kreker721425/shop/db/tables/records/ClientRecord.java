@@ -17,7 +17,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 
 
 /**
- * Клиенты
+ * Клиент
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ClientRecord extends UpdatableRecordImpl<ClientRecord> implements Record5<Long, String, String, BigDecimal, LocalDate> {
@@ -25,70 +25,70 @@ public class ClientRecord extends UpdatableRecordImpl<ClientRecord> implements R
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>shop.client.id</code>. Идентификатор клиента
+     * Setter for <code>shop.client.id</code>. Идентификатор
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>shop.client.id</code>. Идентификатор клиента
+     * Getter for <code>shop.client.id</code>. Идентификатор
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>shop.client.name</code>. Имя клиента
+     * Setter for <code>shop.client.name</code>. Имя
      */
     public void setName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>shop.client.name</code>. Имя клиента
+     * Getter for <code>shop.client.name</code>. Имя
      */
     public String getName() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>shop.client.phone</code>. Номер телефона клиента
+     * Setter for <code>shop.client.phone</code>. Номер телефона
      */
     public void setPhone(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>shop.client.phone</code>. Номер телефона клиента
+     * Getter for <code>shop.client.phone</code>. Номер телефона
      */
     public String getPhone() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>shop.client.bonus_count</code>. Количество бонусных баллов клиента
+     * Setter for <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
     public void setBonusCount(BigDecimal value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>shop.client.bonus_count</code>. Количество бонусных баллов клиента
+     * Getter for <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
     public BigDecimal getBonusCount() {
         return (BigDecimal) get(3);
     }
 
     /**
-     * Setter for <code>shop.client.birthday</code>. Дата рождения клиента
+     * Setter for <code>shop.client.birthday</code>. Дата рождения
      */
     public void setBirthday(LocalDate value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>shop.client.birthday</code>. Дата рождения клиента
+     * Getter for <code>shop.client.birthday</code>. Дата рождения
      */
     public LocalDate getBirthday() {
         return (LocalDate) get(4);

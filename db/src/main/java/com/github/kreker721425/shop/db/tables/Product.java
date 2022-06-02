@@ -17,7 +17,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row7;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -29,7 +29,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * Продукты
+ * Продукт
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Product extends TableImpl<ProductRecord> {
@@ -50,34 +50,29 @@ public class Product extends TableImpl<ProductRecord> {
     }
 
     /**
-     * The column <code>shop.product.id</code>. Идентификатор продукта
+     * The column <code>shop.product.id</code>. Идентификатор
      */
-    public final TableField<ProductRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор продукта");
+    public final TableField<ProductRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор");
 
     /**
-     * The column <code>shop.product.article</code>. Артикул продукта
+     * The column <code>shop.product.name</code>. Название
      */
-    public final TableField<ProductRecord, Long> ARTICLE = createField(DSL.name("article"), SQLDataType.BIGINT.nullable(false), this, "Артикул продукта");
+    public final TableField<ProductRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB.nullable(false), this, "Название");
 
     /**
-     * The column <code>shop.product.name</code>. Название продукта
+     * The column <code>shop.product.count</code>. Количество
      */
-    public final TableField<ProductRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB.nullable(false), this, "Название продукта");
+    public final TableField<ProductRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT.nullable(false).defaultValue(DSL.field("0", SQLDataType.BIGINT)), this, "Количество");
 
     /**
-     * The column <code>shop.product.count</code>. Количество продукта
+     * The column <code>shop.product.description</code>. Описание
      */
-    public final TableField<ProductRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT.nullable(false).defaultValue(DSL.field("0", SQLDataType.BIGINT)), this, "Количество продукта");
+    public final TableField<ProductRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB, this, "Описание");
 
     /**
-     * The column <code>shop.product.description</code>. Описание продукта
+     * The column <code>shop.product.price</code>. Цена
      */
-    public final TableField<ProductRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB, this, "Описание продукта");
-
-    /**
-     * The column <code>shop.product.price</code>. Цена продукта
-     */
-    public final TableField<ProductRecord, BigDecimal> PRICE = createField(DSL.name("price"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Цена продукта");
+    public final TableField<ProductRecord, BigDecimal> PRICE = createField(DSL.name("price"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Цена");
 
     /**
      * The column <code>shop.product.price_discount</code>. Цена продукта со скидкой
@@ -89,7 +84,7 @@ public class Product extends TableImpl<ProductRecord> {
     }
 
     private Product(Name alias, Table<ProductRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Продукты"), TableOptions.table());
+        super(alias, null, aliased, parameters, DSL.comment("Продукт"), TableOptions.table());
     }
 
     /**
@@ -164,11 +159,11 @@ public class Product extends TableImpl<ProductRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Long, Long, String, Long, String, BigDecimal, BigDecimal> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row6<Long, String, Long, String, BigDecimal, BigDecimal> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

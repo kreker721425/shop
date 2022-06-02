@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 
 /**
- * Продукты
+ * Продукт
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Product implements Serializable {
@@ -17,7 +17,6 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long       id;
-    private Long       article;
     private String     name;
     private Long       count;
     private String     description;
@@ -28,7 +27,6 @@ public class Product implements Serializable {
 
     public Product(Product value) {
         this.id = value.id;
-        this.article = value.article;
         this.name = value.name;
         this.count = value.count;
         this.description = value.description;
@@ -38,7 +36,6 @@ public class Product implements Serializable {
 
     public Product(
         Long       id,
-        Long       article,
         String     name,
         Long       count,
         String     description,
@@ -46,7 +43,6 @@ public class Product implements Serializable {
         BigDecimal priceDiscount
     ) {
         this.id = id;
-        this.article = article;
         this.name = name;
         this.count = count;
         this.description = description;
@@ -55,84 +51,70 @@ public class Product implements Serializable {
     }
 
     /**
-     * Getter for <code>shop.product.id</code>. Идентификатор продукта
+     * Getter for <code>shop.product.id</code>. Идентификатор
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Setter for <code>shop.product.id</code>. Идентификатор продукта
+     * Setter for <code>shop.product.id</code>. Идентификатор
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Getter for <code>shop.product.article</code>. Артикул продукта
-     */
-    public Long getArticle() {
-        return this.article;
-    }
-
-    /**
-     * Setter for <code>shop.product.article</code>. Артикул продукта
-     */
-    public void setArticle(Long article) {
-        this.article = article;
-    }
-
-    /**
-     * Getter for <code>shop.product.name</code>. Название продукта
+     * Getter for <code>shop.product.name</code>. Название
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * Setter for <code>shop.product.name</code>. Название продукта
+     * Setter for <code>shop.product.name</code>. Название
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Getter for <code>shop.product.count</code>. Количество продукта
+     * Getter for <code>shop.product.count</code>. Количество
      */
     public Long getCount() {
         return this.count;
     }
 
     /**
-     * Setter for <code>shop.product.count</code>. Количество продукта
+     * Setter for <code>shop.product.count</code>. Количество
      */
     public void setCount(Long count) {
         this.count = count;
     }
 
     /**
-     * Getter for <code>shop.product.description</code>. Описание продукта
+     * Getter for <code>shop.product.description</code>. Описание
      */
     public String getDescription() {
         return this.description;
     }
 
     /**
-     * Setter for <code>shop.product.description</code>. Описание продукта
+     * Setter for <code>shop.product.description</code>. Описание
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * Getter for <code>shop.product.price</code>. Цена продукта
+     * Getter for <code>shop.product.price</code>. Цена
      */
     public BigDecimal getPrice() {
         return this.price;
     }
 
     /**
-     * Setter for <code>shop.product.price</code>. Цена продукта
+     * Setter for <code>shop.product.price</code>. Цена
      */
     public void setPrice(BigDecimal price) {
         this.price = price;
@@ -157,7 +139,6 @@ public class Product implements Serializable {
         StringBuilder sb = new StringBuilder("Product (");
 
         sb.append(id);
-        sb.append(", ").append(article);
         sb.append(", ").append(name);
         sb.append(", ").append(count);
         sb.append(", ").append(description);

@@ -15,13 +15,6 @@ import static org.jooq.impl.DSL.cast;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PaginationUtils {
 
-    public static Integer calcTotalPages(Integer totalElements, Integer limit) {
-        if (limit != null && limit > 0 && totalElements != null) {
-            return (int) Math.ceil(totalElements.doubleValue() / limit.doubleValue());
-        }
-        return null;
-    }
-
     public static Integer calcOffset(Integer page, Integer limit) {
         if (limit != null && page != null) {
             return (page - 1) * limit;
@@ -29,19 +22,12 @@ public class PaginationUtils {
         return null;
     }
 
-    public static Condition getOrLikeCondition(TableField field, List<String> array) {
-        Condition cond = DSL.noCondition();
-        for (String f : array) {
-            cond = cond.or(field.likeIgnoreCase(f));
-        }
-        return cond;
+    public static Condition getOrLikeCondition(TableField field, String filter) {
+        return DSL.noCondition().or(field.likeIgnoreCase("%".concat(filter).concat("%")));
     }
 
-    public static Condition getOrLikeConditionForNumeric(TableField field, List<String> array) {
-        Condition cond = DSL.noCondition();
-        for (String id : array) {
-            cond = cond.or(cast(field, String.class).likeIgnoreCase(id));
-        }
-        return cond;
+    public static Condition getOrLikeConditionForNumeric(TableField field, String id) {
+        return DSL.noCondition()
+                .or(cast(field, String.class).likeIgnoreCase("%".concat(id).concat("%")));
     }
 }

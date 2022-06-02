@@ -1,19 +1,17 @@
 package com.github.kreker721425.shop.repository.filter;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @EqualsAndHashCode(callSuper = true)
+@Builder
 public class ProductFilter extends Filter {
-    private List<String> id = new ArrayList<>();
-    private List<String> article = new ArrayList<>();
-    private List<String> name = new ArrayList<>();
-    private List<String> count = new ArrayList<>();
-    private List<String> description = new ArrayList<>();
-    private List<String> price = new ArrayList<>();
-    private List<String> priceDiscount = new ArrayList<>();
+    private String id;
+    private String name;
+    private String count;
+    private String description;
+    private String price;
+    private String priceDiscount;
 }

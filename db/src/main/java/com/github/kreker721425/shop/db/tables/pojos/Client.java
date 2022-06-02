@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 
 /**
- * Клиенты
+ * Клиент
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Client implements Serializable {
@@ -48,70 +48,70 @@ public class Client implements Serializable {
     }
 
     /**
-     * Getter for <code>shop.client.id</code>. Идентификатор клиента
+     * Getter for <code>shop.client.id</code>. Идентификатор
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Setter for <code>shop.client.id</code>. Идентификатор клиента
+     * Setter for <code>shop.client.id</code>. Идентификатор
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Getter for <code>shop.client.name</code>. Имя клиента
+     * Getter for <code>shop.client.name</code>. Имя
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * Setter for <code>shop.client.name</code>. Имя клиента
+     * Setter for <code>shop.client.name</code>. Имя
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Getter for <code>shop.client.phone</code>. Номер телефона клиента
+     * Getter for <code>shop.client.phone</code>. Номер телефона
      */
     public String getPhone() {
         return this.phone;
     }
 
     /**
-     * Setter for <code>shop.client.phone</code>. Номер телефона клиента
+     * Setter for <code>shop.client.phone</code>. Номер телефона
      */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     /**
-     * Getter for <code>shop.client.bonus_count</code>. Количество бонусных баллов клиента
+     * Getter for <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
     public BigDecimal getBonusCount() {
         return this.bonusCount;
     }
 
     /**
-     * Setter for <code>shop.client.bonus_count</code>. Количество бонусных баллов клиента
+     * Setter for <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
     public void setBonusCount(BigDecimal bonusCount) {
         this.bonusCount = bonusCount;
     }
 
     /**
-     * Getter for <code>shop.client.birthday</code>. Дата рождения клиента
+     * Getter for <code>shop.client.birthday</code>. Дата рождения
      */
     public LocalDate getBirthday() {
         return this.birthday;
     }
 
     /**
-     * Setter for <code>shop.client.birthday</code>. Дата рождения клиента
+     * Setter for <code>shop.client.birthday</code>. Дата рождения
      */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;

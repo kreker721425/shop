@@ -22,7 +22,7 @@
         <db.password>shop</db.password>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <postgresql.version>42.3.1</postgresql.version>
+        <postgresql.version>42.3.5</postgresql.version>
     </properties>
 
     <dependencies>

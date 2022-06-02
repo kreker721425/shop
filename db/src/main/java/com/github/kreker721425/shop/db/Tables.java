@@ -5,9 +5,11 @@ package com.github.kreker721425.shop.db;
 
 
 import com.github.kreker721425.shop.db.tables.Client;
+import com.github.kreker721425.shop.db.tables.History;
 import com.github.kreker721425.shop.db.tables.Order;
 import com.github.kreker721425.shop.db.tables.Product;
 import com.github.kreker721425.shop.db.tables.ProductOrder;
+import com.github.kreker721425.shop.db.tables.Users;
 
 
 /**
@@ -17,9 +19,14 @@ import com.github.kreker721425.shop.db.tables.ProductOrder;
 public class Tables {
 
     /**
-     * Клиенты
+     * Клиент
      */
     public static final Client CLIENT = Client.CLIENT;
+
+    /**
+     * История операций
+     */
+    public static final History HISTORY = History.HISTORY;
 
     /**
      * Заказ
@@ -27,7 +34,7 @@ public class Tables {
     public static final Order ORDER = Order.ORDER;
 
     /**
-     * Продукты
+     * Продукт
      */
     public static final Product PRODUCT = Product.PRODUCT;
 
@@ -35,4 +42,9 @@ public class Tables {
      * Состав заказа
      */
     public static final ProductOrder PRODUCT_ORDER = ProductOrder.PRODUCT_ORDER;
+
+    /**
+     * Пользователь
+     */
+    public static final Users USERS = Users.USERS;
 }

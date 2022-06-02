@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class Filter {
     private Integer page = 1;
-    private Integer limit;
+    private Integer limit = 0;
 }

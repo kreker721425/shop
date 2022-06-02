@@ -21,6 +21,11 @@ public class Sequences {
     public static final Sequence<Long> CLIENT_ID_SEQ = Internal.createSequence("client_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
 
     /**
+     * The sequence <code>shop.history_id_seq</code>
+     */
+    public static final Sequence<Long> HISTORY_ID_SEQ = Internal.createSequence("history_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
+
+    /**
      * The sequence <code>shop.order_id_seq</code>
      */
     public static final Sequence<Long> ORDER_ID_SEQ = Internal.createSequence("order_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
@@ -29,4 +34,14 @@ public class Sequences {
      * The sequence <code>shop.product_id_seq</code>
      */
     public static final Sequence<Long> PRODUCT_ID_SEQ = Internal.createSequence("product_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
+
+    /**
+     * The sequence <code>shop.product_order_id_seq</code>
+     */
+    public static final Sequence<Long> PRODUCT_ORDER_ID_SEQ = Internal.createSequence("product_order_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
+
+    /**
+     * The sequence <code>shop.users_id_seq</code>
+     */
+    public static final Sequence<Long> USERS_ID_SEQ = Internal.createSequence("users_id_seq", Shop.SHOP, SQLDataType.BIGINT.nullable(false), null, null, null, null, false, null);
 }

@@ -25,56 +25,56 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>shop.order.id</code>. Идентификатор заказа
+     * Setter for <code>shop.order.id</code>. Идентификатор
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>shop.order.id</code>. Идентификатор заказа
+     * Getter for <code>shop.order.id</code>. Идентификатор
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>shop.order.created_at</code>. Время создания заказа
+     * Setter for <code>shop.order.created_at</code>. Время создания
      */
     public void setCreatedAt(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>shop.order.created_at</code>. Время создания заказа
+     * Getter for <code>shop.order.created_at</code>. Время создания
      */
     public LocalDateTime getCreatedAt() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>shop.order.price</code>. Стоимость заказа
+     * Setter for <code>shop.order.price</code>. Стоимость
      */
     public void setPrice(BigDecimal value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>shop.order.price</code>. Стоимость заказа
+     * Getter for <code>shop.order.price</code>. Стоимость
      */
     public BigDecimal getPrice() {
         return (BigDecimal) get(2);
     }
 
     /**
-     * Setter for <code>shop.order.client_id</code>. Идентификатор клиента заказа
+     * Setter for <code>shop.order.client_id</code>. Идентификатор клиента
      */
     public void setClientId(Long value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>shop.order.client_id</code>. Идентификатор клиента заказа
+     * Getter for <code>shop.order.client_id</code>. Идентификатор клиента
      */
     public Long getClientId() {
         return (Long) get(3);

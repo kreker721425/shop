@@ -1,17 +1,18 @@
 package com.github.kreker721425.shop.repository.filter;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
+@Builder
 public class ClientFilter extends Filter {
-    private List<String> id = new ArrayList<>();
-    private List<String> name = new ArrayList<>();
-    private List<String> phone = new ArrayList<>();
+    private String id;
+    private String name;
+    private String phone;
     private LocalDate birthday;
 }

@@ -5,13 +5,17 @@ package com.github.kreker721425.shop.db;
 
 
 import com.github.kreker721425.shop.db.tables.Client;
+import com.github.kreker721425.shop.db.tables.History;
 import com.github.kreker721425.shop.db.tables.Order;
 import com.github.kreker721425.shop.db.tables.Product;
 import com.github.kreker721425.shop.db.tables.ProductOrder;
+import com.github.kreker721425.shop.db.tables.Users;
 import com.github.kreker721425.shop.db.tables.records.ClientRecord;
+import com.github.kreker721425.shop.db.tables.records.HistoryRecord;
 import com.github.kreker721425.shop.db.tables.records.OrderRecord;
 import com.github.kreker721425.shop.db.tables.records.ProductOrderRecord;
 import com.github.kreker721425.shop.db.tables.records.ProductRecord;
+import com.github.kreker721425.shop.db.tables.records.UsersRecord;
 
 import org.jooq.ForeignKey;
 import org.jooq.TableField;
@@ -32,13 +36,17 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     public static final UniqueKey<ClientRecord> CLIENT_ID_PK = Internal.createUniqueKey(Client.CLIENT, DSL.name("client_id_pk"), new TableField[] { Client.CLIENT.ID }, true);
+    public static final UniqueKey<HistoryRecord> HISTORY_ID_PK = Internal.createUniqueKey(History.HISTORY, DSL.name("history_id_pk"), new TableField[] { History.HISTORY.ID }, true);
     public static final UniqueKey<OrderRecord> ORDER_ID_PK = Internal.createUniqueKey(Order.ORDER, DSL.name("order_id_pk"), new TableField[] { Order.ORDER.ID }, true);
     public static final UniqueKey<ProductRecord> PRODUCT_ID_PK = Internal.createUniqueKey(Product.PRODUCT, DSL.name("product_id_pk"), new TableField[] { Product.PRODUCT.ID }, true);
+    public static final UniqueKey<ProductOrderRecord> PRODUCT_ORDER_ID_PK = Internal.createUniqueKey(ProductOrder.PRODUCT_ORDER, DSL.name("product_order_id_pk"), new TableField[] { ProductOrder.PRODUCT_ORDER.ID }, true);
+    public static final UniqueKey<UsersRecord> USERS_ID_PK = Internal.createUniqueKey(Users.USERS, DSL.name("users_id_pk"), new TableField[] { Users.USERS.ID }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<HistoryRecord, UsersRecord> HISTORY__USER_ID__FK = Internal.createForeignKey(History.HISTORY, DSL.name("user_id__fk"), new TableField[] { History.HISTORY.USER_ID }, Keys.USERS_ID_PK, new TableField[] { Users.USERS.ID }, true);
     public static final ForeignKey<OrderRecord, ClientRecord> ORDER__CLIENT_ID__FK = Internal.createForeignKey(Order.ORDER, DSL.name("client_id__fk"), new TableField[] { Order.ORDER.CLIENT_ID }, Keys.CLIENT_ID_PK, new TableField[] { Client.CLIENT.ID }, true);
     public static final ForeignKey<ProductOrderRecord, OrderRecord> PRODUCT_ORDER__ORDER_ID__FK = Internal.createForeignKey(ProductOrder.PRODUCT_ORDER, DSL.name("order_id__fk"), new TableField[] { ProductOrder.PRODUCT_ORDER.ORDER_ID }, Keys.ORDER_ID_PK, new TableField[] { Order.ORDER.ID }, true);
     public static final ForeignKey<ProductOrderRecord, ProductRecord> PRODUCT_ORDER__PRODUCT_ID__FK = Internal.createForeignKey(ProductOrder.PRODUCT_ORDER, DSL.name("product_id__fk"), new TableField[] { ProductOrder.PRODUCT_ORDER.PRODUCT_ID }, Keys.PRODUCT_ID_PK, new TableField[] { Product.PRODUCT.ID }, true);

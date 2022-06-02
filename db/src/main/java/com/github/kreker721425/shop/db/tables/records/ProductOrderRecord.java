@@ -7,143 +7,189 @@ package com.github.kreker721425.shop.db.tables.records;
 import com.github.kreker721425.shop.db.tables.ProductOrder;
 
 import org.jooq.Field;
-import org.jooq.Record3;
-import org.jooq.Row3;
-import org.jooq.impl.TableRecordImpl;
+import org.jooq.Record1;
+import org.jooq.Record4;
+import org.jooq.Row4;
+import org.jooq.impl.UpdatableRecordImpl;
 
 
 /**
  * Состав заказа
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ProductOrderRecord extends TableRecordImpl<ProductOrderRecord> implements Record3<Long, Long, Long> {
+public class ProductOrderRecord extends UpdatableRecordImpl<ProductOrderRecord> implements Record4<Long, Long, Long, Long> {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     * Setter for <code>shop.product_order.id</code>.
+     */
+    public void setId(Long value) {
+        set(0, value);
+    }
+
+    /**
+     * Getter for <code>shop.product_order.id</code>.
+     */
+    public Long getId() {
+        return (Long) get(0);
+    }
 
     /**
      * Setter for <code>shop.product_order.product_id</code>. Идентификатор продукта
      */
     public void setProductId(Long value) {
-        set(0, value);
+        set(1, value);
     }
 
     /**
      * Getter for <code>shop.product_order.product_id</code>. Идентификатор продукта
      */
     public Long getProductId() {
-        return (Long) get(0);
+        return (Long) get(1);
     }
 
     /**
      * Setter for <code>shop.product_order.order_id</code>. Идентификатор заказа
      */
     public void setOrderId(Long value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>shop.product_order.order_id</code>. Идентификатор заказа
      */
     public Long getOrderId() {
-        return (Long) get(1);
+        return (Long) get(2);
     }
 
     /**
      * Setter for <code>shop.product_order.count</code>. Количество продукта в заказе
      */
     public void setCount(Long value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>shop.product_order.count</code>. Количество продукта в заказе
      */
     public Long getCount() {
-        return (Long) get(2);
+        return (Long) get(3);
     }
 
     // -------------------------------------------------------------------------
-    // Record3 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Long, Long, Long> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Record1<Long> key() {
+        return (Record1) super.key();
+    }
+
+    // -------------------------------------------------------------------------
+    // Record4 type implementation
+    // -------------------------------------------------------------------------
+
+    @Override
+    public Row4<Long, Long, Long, Long> fieldsRow() {
+        return (Row4) super.fieldsRow();
     }
 
     @Override
-    public Row3<Long, Long, Long> valuesRow() {
-        return (Row3) super.valuesRow();
+    public Row4<Long, Long, Long, Long> valuesRow() {
+        return (Row4) super.valuesRow();
     }
 
     @Override
     public Field<Long> field1() {
-        return ProductOrder.PRODUCT_ORDER.PRODUCT_ID;
+        return ProductOrder.PRODUCT_ORDER.ID;
     }
 
     @Override
     public Field<Long> field2() {
-        return ProductOrder.PRODUCT_ORDER.ORDER_ID;
+        return ProductOrder.PRODUCT_ORDER.PRODUCT_ID;
     }
 
     @Override
     public Field<Long> field3() {
+        return ProductOrder.PRODUCT_ORDER.ORDER_ID;
+    }
+
+    @Override
+    public Field<Long> field4() {
         return ProductOrder.PRODUCT_ORDER.COUNT;
     }
 
     @Override
     public Long component1() {
-        return getProductId();
+        return getId();
     }
 
     @Override
     public Long component2() {
-        return getOrderId();
+        return getProductId();
     }
 
     @Override
     public Long component3() {
+        return getOrderId();
+    }
+
+    @Override
+    public Long component4() {
         return getCount();
     }
 
     @Override
     public Long value1() {
-        return getProductId();
+        return getId();
     }
 
     @Override
     public Long value2() {
-        return getOrderId();
+        return getProductId();
     }
 
     @Override
     public Long value3() {
+        return getOrderId();
+    }
+
+    @Override
+    public Long value4() {
         return getCount();
     }
 
     @Override
     public ProductOrderRecord value1(Long value) {
-        setProductId(value);
+        setId(value);
         return this;
     }
 
     @Override
     public ProductOrderRecord value2(Long value) {
-        setOrderId(value);
+        setProductId(value);
         return this;
     }
 
     @Override
     public ProductOrderRecord value3(Long value) {
+        setOrderId(value);
+        return this;
+    }
+
+    @Override
+    public ProductOrderRecord value4(Long value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ProductOrderRecord values(Long value1, Long value2, Long value3) {
+    public ProductOrderRecord values(Long value1, Long value2, Long value3, Long value4) {
         value1(value1);
         value2(value2);
         value3(value3);
+        value4(value4);
         return this;
     }
 
@@ -161,9 +207,10 @@ public class ProductOrderRecord extends TableRecordImpl<ProductOrderRecord> impl
     /**
      * Create a detached, initialised ProductOrderRecord
      */
-    public ProductOrderRecord(Long productId, Long orderId, Long count) {
+    public ProductOrderRecord(Long id, Long productId, Long orderId, Long count) {
         super(ProductOrder.PRODUCT_ORDER);
 
+        setId(id);
         setProductId(productId);
         setOrderId(orderId);
         setCount(count);

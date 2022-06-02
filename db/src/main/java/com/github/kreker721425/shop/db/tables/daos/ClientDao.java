@@ -16,7 +16,7 @@ import org.jooq.impl.DAOImpl;
 
 
 /**
- * Клиенты
+ * Клиент
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ClientDao extends DAOImpl<ClientRecord, com.github.kreker721425.shop.db.tables.pojos.Client, Long> {

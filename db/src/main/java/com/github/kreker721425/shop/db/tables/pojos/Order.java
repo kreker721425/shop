@@ -48,56 +48,56 @@ public class Order implements Serializable {
     }
 
     /**
-     * Getter for <code>shop.order.id</code>. Идентификатор заказа
+     * Getter for <code>shop.order.id</code>. Идентификатор
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Setter for <code>shop.order.id</code>. Идентификатор заказа
+     * Setter for <code>shop.order.id</code>. Идентификатор
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Getter for <code>shop.order.created_at</code>. Время создания заказа
+     * Getter for <code>shop.order.created_at</code>. Время создания
      */
     public LocalDateTime getCreatedAt() {
         return this.createdAt;
     }
 
     /**
-     * Setter for <code>shop.order.created_at</code>. Время создания заказа
+     * Setter for <code>shop.order.created_at</code>. Время создания
      */
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
     /**
-     * Getter for <code>shop.order.price</code>. Стоимость заказа
+     * Getter for <code>shop.order.price</code>. Стоимость
      */
     public BigDecimal getPrice() {
         return this.price;
     }
 
     /**
-     * Setter for <code>shop.order.price</code>. Стоимость заказа
+     * Setter for <code>shop.order.price</code>. Стоимость
      */
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
     /**
-     * Getter for <code>shop.order.client_id</code>. Идентификатор клиента заказа
+     * Getter for <code>shop.order.client_id</code>. Идентификатор клиента
      */
     public Long getClientId() {
         return this.clientId;
     }
 
     /**
-     * Setter for <code>shop.order.client_id</code>. Идентификатор клиента заказа
+     * Setter for <code>shop.order.client_id</code>. Идентификатор клиента
      */
     public void setClientId(Long clientId) {
         this.clientId = clientId;

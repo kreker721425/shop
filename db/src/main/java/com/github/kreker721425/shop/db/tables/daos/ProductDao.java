@@ -15,7 +15,7 @@ import org.jooq.impl.DAOImpl;
 
 
 /**
- * Продукты
+ * Продукт
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ProductDao extends DAOImpl<ProductRecord, com.github.kreker721425.shop.db.tables.pojos.Product, Long> {
@@ -58,20 +58,6 @@ public class ProductDao extends DAOImpl<ProductRecord, com.github.kreker721425.s
      */
     public com.github.kreker721425.shop.db.tables.pojos.Product fetchOneById(Long value) {
         return fetchOne(Product.PRODUCT.ID, value);
-    }
-
-    /**
-     * Fetch records that have <code>article BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchRangeOfArticle(Long lowerInclusive, Long upperInclusive) {
-        return fetchRange(Product.PRODUCT.ARTICLE, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>article IN (values)</code>
-     */
-    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchByArticle(Long... values) {
-        return fetch(Product.PRODUCT.ARTICLE, values);
     }
 
     /**

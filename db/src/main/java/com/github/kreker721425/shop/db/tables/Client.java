@@ -30,7 +30,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * Клиенты
+ * Клиент
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Client extends TableImpl<ClientRecord> {
@@ -51,36 +51,36 @@ public class Client extends TableImpl<ClientRecord> {
     }
 
     /**
-     * The column <code>shop.client.id</code>. Идентификатор клиента
+     * The column <code>shop.client.id</code>. Идентификатор
      */
-    public final TableField<ClientRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор клиента");
+    public final TableField<ClientRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор");
 
     /**
-     * The column <code>shop.client.name</code>. Имя клиента
+     * The column <code>shop.client.name</code>. Имя
      */
-    public final TableField<ClientRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB.nullable(false), this, "Имя клиента");
+    public final TableField<ClientRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB.nullable(false), this, "Имя");
 
     /**
-     * The column <code>shop.client.phone</code>. Номер телефона клиента
+     * The column <code>shop.client.phone</code>. Номер телефона
      */
-    public final TableField<ClientRecord, String> PHONE = createField(DSL.name("phone"), SQLDataType.CLOB.nullable(false), this, "Номер телефона клиента");
+    public final TableField<ClientRecord, String> PHONE = createField(DSL.name("phone"), SQLDataType.CLOB.nullable(false), this, "Номер телефона");
 
     /**
-     * The column <code>shop.client.bonus_count</code>. Количество бонусных баллов клиента
+     * The column <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
-    public final TableField<ClientRecord, BigDecimal> BONUS_COUNT = createField(DSL.name("bonus_count"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Количество бонусных баллов клиента");
+    public final TableField<ClientRecord, BigDecimal> BONUS_COUNT = createField(DSL.name("bonus_count"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Количество бонусных баллов");
 
     /**
-     * The column <code>shop.client.birthday</code>. Дата рождения клиента
+     * The column <code>shop.client.birthday</code>. Дата рождения
      */
-    public final TableField<ClientRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATE.nullable(false), this, "Дата рождения клиента");
+    public final TableField<ClientRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATE.nullable(false), this, "Дата рождения");
 
     private Client(Name alias, Table<ClientRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private Client(Name alias, Table<ClientRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Клиенты"), TableOptions.table());
+        super(alias, null, aliased, parameters, DSL.comment("Клиент"), TableOptions.table());
     }
 
     /**

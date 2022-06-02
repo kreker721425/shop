@@ -5,9 +5,11 @@ package com.github.kreker721425.shop.db;
 
 
 import com.github.kreker721425.shop.db.tables.Client;
+import com.github.kreker721425.shop.db.tables.History;
 import com.github.kreker721425.shop.db.tables.Order;
 import com.github.kreker721425.shop.db.tables.Product;
 import com.github.kreker721425.shop.db.tables.ProductOrder;
+import com.github.kreker721425.shop.db.tables.Users;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,9 +34,14 @@ public class Shop extends SchemaImpl {
     public static final Shop SHOP = new Shop();
 
     /**
-     * Клиенты
+     * Клиент
      */
     public final Client CLIENT = Client.CLIENT;
+
+    /**
+     * История операций
+     */
+    public final History HISTORY = History.HISTORY;
 
     /**
      * Заказ
@@ -42,7 +49,7 @@ public class Shop extends SchemaImpl {
     public final Order ORDER = Order.ORDER;
 
     /**
-     * Продукты
+     * Продукт
      */
     public final Product PRODUCT = Product.PRODUCT;
 
@@ -50,6 +57,11 @@ public class Shop extends SchemaImpl {
      * Состав заказа
      */
     public final ProductOrder PRODUCT_ORDER = ProductOrder.PRODUCT_ORDER;
+
+    /**
+     * Пользователь
+     */
+    public final Users USERS = Users.USERS;
 
     /**
      * No further instances allowed
@@ -68,16 +80,21 @@ public class Shop extends SchemaImpl {
     public final List<Sequence<?>> getSequences() {
         return Arrays.<Sequence<?>>asList(
             Sequences.CLIENT_ID_SEQ,
+            Sequences.HISTORY_ID_SEQ,
             Sequences.ORDER_ID_SEQ,
-            Sequences.PRODUCT_ID_SEQ);
+            Sequences.PRODUCT_ID_SEQ,
+            Sequences.PRODUCT_ORDER_ID_SEQ,
+            Sequences.USERS_ID_SEQ);
     }
 
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
             Client.CLIENT,
+            History.HISTORY,
             Order.ORDER,
             Product.PRODUCT,
-            ProductOrder.PRODUCT_ORDER);
+            ProductOrder.PRODUCT_ORDER,
+            Users.USERS);
     }
 }
