@@ -55,6 +55,9 @@ public class ProductRepository extends ProductDao {
         if (Objects.nonNull(filter.getId())) {
             conditions.add(PaginationUtils.getOrLikeConditionForNumeric(PRODUCT.ID, filter.getId()));
         }
+        if (Objects.nonNull(filter.getArticle())) {
+            conditions.add(PaginationUtils.getOrLikeCondition(PRODUCT.ARTICLE, filter.getArticle()));
+        }
         if (Objects.nonNull(filter.getName())) {
             conditions.add(PaginationUtils.getOrLikeCondition(PRODUCT.NAME, filter.getName()));
         }

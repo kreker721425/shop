@@ -1,0 +1,1 @@
+DELETE FROM shop.users WHERE login = 'admin';

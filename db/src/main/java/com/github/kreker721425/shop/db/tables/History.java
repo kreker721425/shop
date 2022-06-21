@@ -69,12 +69,12 @@ public class History extends TableImpl<HistoryRecord> {
     /**
      * The column <code>shop.history.old_value</code>. Старое значение
      */
-    public final TableField<HistoryRecord, String> OLD_VALUE = createField(DSL.name("old_value"), SQLDataType.CLOB.nullable(false), this, "Старое значение");
+    public final TableField<HistoryRecord, String> OLD_VALUE = createField(DSL.name("old_value"), SQLDataType.CLOB, this, "Старое значение");
 
     /**
      * The column <code>shop.history.new_value</code>. Новое значение
      */
-    public final TableField<HistoryRecord, String> NEW_VALUE = createField(DSL.name("new_value"), SQLDataType.CLOB.nullable(false), this, "Новое значение");
+    public final TableField<HistoryRecord, String> NEW_VALUE = createField(DSL.name("new_value"), SQLDataType.CLOB, this, "Новое значение");
 
     /**
      * The column <code>shop.history.created_at</code>. Время создания

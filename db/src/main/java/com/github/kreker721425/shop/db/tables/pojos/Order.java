@@ -22,6 +22,7 @@ public class Order implements Serializable {
     private BigDecimal    price;
     private Long          clientId;
     private BigDecimal    bonusCount;
+    private Long          userId;
 
     public Order() {}
 
@@ -31,6 +32,7 @@ public class Order implements Serializable {
         this.price = value.price;
         this.clientId = value.clientId;
         this.bonusCount = value.bonusCount;
+        this.userId = value.userId;
     }
 
     public Order(
@@ -38,13 +40,15 @@ public class Order implements Serializable {
         LocalDateTime createdAt,
         BigDecimal    price,
         Long          clientId,
-        BigDecimal    bonusCount
+        BigDecimal    bonusCount,
+        Long          userId
     ) {
         this.id = id;
         this.createdAt = createdAt;
         this.price = price;
         this.clientId = clientId;
         this.bonusCount = bonusCount;
+        this.userId = userId;
     }
 
     /**
@@ -117,6 +121,20 @@ public class Order implements Serializable {
         this.bonusCount = bonusCount;
     }
 
+    /**
+     * Getter for <code>shop.order.user_id</code>. Идентификатор пользователя
+     */
+    public Long getUserId() {
+        return this.userId;
+    }
+
+    /**
+     * Setter for <code>shop.order.user_id</code>. Идентификатор пользователя
+     */
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Order (");
@@ -126,6 +144,7 @@ public class Order implements Serializable {
         sb.append(", ").append(price);
         sb.append(", ").append(clientId);
         sb.append(", ").append(bonusCount);
+        sb.append(", ").append(userId);
 
         sb.append(")");
         return sb.toString();

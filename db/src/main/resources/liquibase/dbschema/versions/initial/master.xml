@@ -15,4 +15,14 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="002" author="ds_spiridonov">
+        <tagDatabase tag="002"/>
+    </changeSet>
+    <changeSet id="002-insert-users.sql" author="ds_spiridonov">
+        <sqlFile path="002-insert-users.sql" splitStatements="false" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="002-insert-users.sql" splitStatements="false" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

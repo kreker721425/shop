@@ -17,7 +17,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -50,9 +50,14 @@ public class Product extends TableImpl<ProductRecord> {
     }
 
     /**
-     * The column <code>shop.product.id</code>. Идентификатор
+     * The column <code>shop.product.id</code>. Артикул
      */
-    public final TableField<ProductRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Идентификатор");
+    public final TableField<ProductRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "Артикул");
+
+    /**
+     * The column <code>shop.product.article</code>.
+     */
+    public final TableField<ProductRecord, String> ARTICLE = createField(DSL.name("article"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
      * The column <code>shop.product.name</code>. Название
@@ -62,7 +67,7 @@ public class Product extends TableImpl<ProductRecord> {
     /**
      * The column <code>shop.product.count</code>. Количество
      */
-    public final TableField<ProductRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT.nullable(false).defaultValue(DSL.field("0", SQLDataType.BIGINT)), this, "Количество");
+    public final TableField<ProductRecord, Integer> COUNT = createField(DSL.name("count"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field("0", SQLDataType.INTEGER)), this, "Количество");
 
     /**
      * The column <code>shop.product.description</code>. Описание
@@ -159,11 +164,11 @@ public class Product extends TableImpl<ProductRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Long, String, Long, String, BigDecimal, BigDecimal> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<Long, String, String, Integer, String, BigDecimal, BigDecimal> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 }

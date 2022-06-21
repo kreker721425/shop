@@ -17,8 +17,9 @@ public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long       id;
+    private String     article;
     private String     name;
-    private Long       count;
+    private Integer    count;
     private String     description;
     private BigDecimal price;
     private BigDecimal priceDiscount;
@@ -27,6 +28,7 @@ public class Product implements Serializable {
 
     public Product(Product value) {
         this.id = value.id;
+        this.article = value.article;
         this.name = value.name;
         this.count = value.count;
         this.description = value.description;
@@ -36,13 +38,15 @@ public class Product implements Serializable {
 
     public Product(
         Long       id,
+        String     article,
         String     name,
-        Long       count,
+        Integer    count,
         String     description,
         BigDecimal price,
         BigDecimal priceDiscount
     ) {
         this.id = id;
+        this.article = article;
         this.name = name;
         this.count = count;
         this.description = description;
@@ -51,17 +55,31 @@ public class Product implements Serializable {
     }
 
     /**
-     * Getter for <code>shop.product.id</code>. Идентификатор
+     * Getter for <code>shop.product.id</code>. Артикул
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Setter for <code>shop.product.id</code>. Идентификатор
+     * Setter for <code>shop.product.id</code>. Артикул
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * Getter for <code>shop.product.article</code>.
+     */
+    public String getArticle() {
+        return this.article;
+    }
+
+    /**
+     * Setter for <code>shop.product.article</code>.
+     */
+    public void setArticle(String article) {
+        this.article = article;
     }
 
     /**
@@ -81,14 +99,14 @@ public class Product implements Serializable {
     /**
      * Getter for <code>shop.product.count</code>. Количество
      */
-    public Long getCount() {
+    public Integer getCount() {
         return this.count;
     }
 
     /**
      * Setter for <code>shop.product.count</code>. Количество
      */
-    public void setCount(Long count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
@@ -139,6 +157,7 @@ public class Product implements Serializable {
         StringBuilder sb = new StringBuilder("Product (");
 
         sb.append(id);
+        sb.append(", ").append(article);
         sb.append(", ").append(name);
         sb.append(", ").append(count);
         sb.append(", ").append(description);

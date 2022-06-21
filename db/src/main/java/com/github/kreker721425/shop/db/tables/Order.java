@@ -18,7 +18,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -68,12 +68,17 @@ public class Order extends TableImpl<OrderRecord> {
     /**
      * The column <code>shop.order.client_id</code>. Идентификатор клиента
      */
-    public final TableField<OrderRecord, Long> CLIENT_ID = createField(DSL.name("client_id"), SQLDataType.BIGINT.nullable(false), this, "Идентификатор клиента");
+    public final TableField<OrderRecord, Long> CLIENT_ID = createField(DSL.name("client_id"), SQLDataType.BIGINT, this, "Идентификатор клиента");
 
     /**
      * The column <code>shop.order.bonus_count</code>. Количество бонусных баллов за заказ
      */
     public final TableField<OrderRecord, BigDecimal> BONUS_COUNT = createField(DSL.name("bonus_count"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Количество бонусных баллов за заказ");
+
+    /**
+     * The column <code>shop.order.user_id</code>. Идентификатор пользователя
+     */
+    public final TableField<OrderRecord, Long> USER_ID = createField(DSL.name("user_id"), SQLDataType.BIGINT, this, "Идентификатор пользователя");
 
     private Order(Name alias, Table<OrderRecord> aliased) {
         this(alias, aliased, null);
@@ -130,16 +135,24 @@ public class Order extends TableImpl<OrderRecord> {
 
     @Override
     public List<ForeignKey<OrderRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<OrderRecord, ?>>asList(Keys.ORDER__CLIENT_ID__FK);
+        return Arrays.<ForeignKey<OrderRecord, ?>>asList(Keys.ORDER__CLIENT_ID__FK, Keys.ORDER__USER_ID__FK);
     }
 
     private transient Client _client;
+    private transient Users _users;
 
     public Client client() {
         if (_client == null)
             _client = new Client(this, Keys.ORDER__CLIENT_ID__FK);
 
         return _client;
+    }
+
+    public Users users() {
+        if (_users == null)
+            _users = new Users(this, Keys.ORDER__USER_ID__FK);
+
+        return _users;
     }
 
     @Override
@@ -169,11 +182,11 @@ public class Order extends TableImpl<OrderRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Long, LocalDateTime, BigDecimal, Long, BigDecimal> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Long, LocalDateTime, BigDecimal, Long, BigDecimal, Long> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

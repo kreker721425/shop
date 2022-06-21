@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
+import org.jooq.Record7;
+import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -19,92 +19,106 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Продукт
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements Record6<Long, String, Long, String, BigDecimal, BigDecimal> {
+public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements Record7<Long, String, String, Integer, String, BigDecimal, BigDecimal> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>shop.product.id</code>. Идентификатор
+     * Setter for <code>shop.product.id</code>. Артикул
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>shop.product.id</code>. Идентификатор
+     * Getter for <code>shop.product.id</code>. Артикул
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
+     * Setter for <code>shop.product.article</code>.
+     */
+    public void setArticle(String value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>shop.product.article</code>.
+     */
+    public String getArticle() {
+        return (String) get(1);
+    }
+
+    /**
      * Setter for <code>shop.product.name</code>. Название
      */
     public void setName(String value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>shop.product.name</code>. Название
      */
     public String getName() {
-        return (String) get(1);
+        return (String) get(2);
     }
 
     /**
      * Setter for <code>shop.product.count</code>. Количество
      */
-    public void setCount(Long value) {
-        set(2, value);
+    public void setCount(Integer value) {
+        set(3, value);
     }
 
     /**
      * Getter for <code>shop.product.count</code>. Количество
      */
-    public Long getCount() {
-        return (Long) get(2);
+    public Integer getCount() {
+        return (Integer) get(3);
     }
 
     /**
      * Setter for <code>shop.product.description</code>. Описание
      */
     public void setDescription(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>shop.product.description</code>. Описание
      */
     public String getDescription() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
      * Setter for <code>shop.product.price</code>. Цена
      */
     public void setPrice(BigDecimal value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>shop.product.price</code>. Цена
      */
     public BigDecimal getPrice() {
-        return (BigDecimal) get(4);
+        return (BigDecimal) get(5);
     }
 
     /**
      * Setter for <code>shop.product.price_discount</code>. Цена продукта со скидкой
      */
     public void setPriceDiscount(BigDecimal value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>shop.product.price_discount</code>. Цена продукта со скидкой
      */
     public BigDecimal getPriceDiscount() {
-        return (BigDecimal) get(5);
+        return (BigDecimal) get(6);
     }
 
     // -------------------------------------------------------------------------
@@ -117,17 +131,17 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
+    // Record7 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Long, String, Long, String, BigDecimal, BigDecimal> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<Long, String, String, Integer, String, BigDecimal, BigDecimal> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 
     @Override
-    public Row6<Long, String, Long, String, BigDecimal, BigDecimal> valuesRow() {
-        return (Row6) super.valuesRow();
+    public Row7<Long, String, String, Integer, String, BigDecimal, BigDecimal> valuesRow() {
+        return (Row7) super.valuesRow();
     }
 
     @Override
@@ -137,26 +151,31 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
 
     @Override
     public Field<String> field2() {
+        return Product.PRODUCT.ARTICLE;
+    }
+
+    @Override
+    public Field<String> field3() {
         return Product.PRODUCT.NAME;
     }
 
     @Override
-    public Field<Long> field3() {
+    public Field<Integer> field4() {
         return Product.PRODUCT.COUNT;
     }
 
     @Override
-    public Field<String> field4() {
+    public Field<String> field5() {
         return Product.PRODUCT.DESCRIPTION;
     }
 
     @Override
-    public Field<BigDecimal> field5() {
+    public Field<BigDecimal> field6() {
         return Product.PRODUCT.PRICE;
     }
 
     @Override
-    public Field<BigDecimal> field6() {
+    public Field<BigDecimal> field7() {
         return Product.PRODUCT.PRICE_DISCOUNT;
     }
 
@@ -167,26 +186,31 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
 
     @Override
     public String component2() {
+        return getArticle();
+    }
+
+    @Override
+    public String component3() {
         return getName();
     }
 
     @Override
-    public Long component3() {
+    public Integer component4() {
         return getCount();
     }
 
     @Override
-    public String component4() {
+    public String component5() {
         return getDescription();
     }
 
     @Override
-    public BigDecimal component5() {
+    public BigDecimal component6() {
         return getPrice();
     }
 
     @Override
-    public BigDecimal component6() {
+    public BigDecimal component7() {
         return getPriceDiscount();
     }
 
@@ -197,26 +221,31 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
 
     @Override
     public String value2() {
+        return getArticle();
+    }
+
+    @Override
+    public String value3() {
         return getName();
     }
 
     @Override
-    public Long value3() {
+    public Integer value4() {
         return getCount();
     }
 
     @Override
-    public String value4() {
+    public String value5() {
         return getDescription();
     }
 
     @Override
-    public BigDecimal value5() {
+    public BigDecimal value6() {
         return getPrice();
     }
 
     @Override
-    public BigDecimal value6() {
+    public BigDecimal value7() {
         return getPriceDiscount();
     }
 
@@ -228,42 +257,49 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
 
     @Override
     public ProductRecord value2(String value) {
+        setArticle(value);
+        return this;
+    }
+
+    @Override
+    public ProductRecord value3(String value) {
         setName(value);
         return this;
     }
 
     @Override
-    public ProductRecord value3(Long value) {
+    public ProductRecord value4(Integer value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ProductRecord value4(String value) {
+    public ProductRecord value5(String value) {
         setDescription(value);
         return this;
     }
 
     @Override
-    public ProductRecord value5(BigDecimal value) {
+    public ProductRecord value6(BigDecimal value) {
         setPrice(value);
         return this;
     }
 
     @Override
-    public ProductRecord value6(BigDecimal value) {
+    public ProductRecord value7(BigDecimal value) {
         setPriceDiscount(value);
         return this;
     }
 
     @Override
-    public ProductRecord values(Long value1, String value2, Long value3, String value4, BigDecimal value5, BigDecimal value6) {
+    public ProductRecord values(Long value1, String value2, String value3, Integer value4, String value5, BigDecimal value6, BigDecimal value7) {
         value1(value1);
         value2(value2);
         value3(value3);
         value4(value4);
         value5(value5);
         value6(value6);
+        value7(value7);
         return this;
     }
 
@@ -281,10 +317,11 @@ public class ProductRecord extends UpdatableRecordImpl<ProductRecord> implements
     /**
      * Create a detached, initialised ProductRecord
      */
-    public ProductRecord(Long id, String name, Long count, String description, BigDecimal price, BigDecimal priceDiscount) {
+    public ProductRecord(Long id, String article, String name, Integer count, String description, BigDecimal price, BigDecimal priceDiscount) {
         super(Product.PRODUCT);
 
         setId(id);
+        setArticle(article);
         setName(name);
         setCount(count);
         setDescription(description);

@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
+import org.jooq.Record6;
+import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -20,7 +20,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Заказ
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Record5<Long, LocalDateTime, BigDecimal, Long, BigDecimal> {
+public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Record6<Long, LocalDateTime, BigDecimal, Long, BigDecimal, Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -94,6 +94,20 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
         return (BigDecimal) get(4);
     }
 
+    /**
+     * Setter for <code>shop.order.user_id</code>. Идентификатор пользователя
+     */
+    public void setUserId(Long value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>shop.order.user_id</code>. Идентификатор пользователя
+     */
+    public Long getUserId() {
+        return (Long) get(5);
+    }
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -104,17 +118,17 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
+    // Record6 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Long, LocalDateTime, BigDecimal, Long, BigDecimal> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Long, LocalDateTime, BigDecimal, Long, BigDecimal, Long> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     @Override
-    public Row5<Long, LocalDateTime, BigDecimal, Long, BigDecimal> valuesRow() {
-        return (Row5) super.valuesRow();
+    public Row6<Long, LocalDateTime, BigDecimal, Long, BigDecimal, Long> valuesRow() {
+        return (Row6) super.valuesRow();
     }
 
     @Override
@@ -143,6 +157,11 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     }
 
     @Override
+    public Field<Long> field6() {
+        return Order.ORDER.USER_ID;
+    }
+
+    @Override
     public Long component1() {
         return getId();
     }
@@ -168,6 +187,11 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     }
 
     @Override
+    public Long component6() {
+        return getUserId();
+    }
+
+    @Override
     public Long value1() {
         return getId();
     }
@@ -190,6 +214,11 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     @Override
     public BigDecimal value5() {
         return getBonusCount();
+    }
+
+    @Override
+    public Long value6() {
+        return getUserId();
     }
 
     @Override
@@ -223,12 +252,19 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     }
 
     @Override
-    public OrderRecord values(Long value1, LocalDateTime value2, BigDecimal value3, Long value4, BigDecimal value5) {
+    public OrderRecord value6(Long value) {
+        setUserId(value);
+        return this;
+    }
+
+    @Override
+    public OrderRecord values(Long value1, LocalDateTime value2, BigDecimal value3, Long value4, BigDecimal value5, Long value6) {
         value1(value1);
         value2(value2);
         value3(value3);
         value4(value4);
         value5(value5);
+        value6(value6);
         return this;
     }
 
@@ -246,7 +282,7 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
     /**
      * Create a detached, initialised OrderRecord
      */
-    public OrderRecord(Long id, LocalDateTime createdAt, BigDecimal price, Long clientId, BigDecimal bonusCount) {
+    public OrderRecord(Long id, LocalDateTime createdAt, BigDecimal price, Long clientId, BigDecimal bonusCount, Long userId) {
         super(Order.ORDER);
 
         setId(id);
@@ -254,5 +290,6 @@ public class OrderRecord extends UpdatableRecordImpl<OrderRecord> implements Rec
         setPrice(price);
         setClientId(clientId);
         setBonusCount(bonusCount);
+        setUserId(userId);
     }
 }

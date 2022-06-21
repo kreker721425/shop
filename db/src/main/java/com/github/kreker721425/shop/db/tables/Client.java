@@ -68,12 +68,12 @@ public class Client extends TableImpl<ClientRecord> {
     /**
      * The column <code>shop.client.bonus_count</code>. Количество бонусных баллов
      */
-    public final TableField<ClientRecord, BigDecimal> BONUS_COUNT = createField(DSL.name("bonus_count"), SQLDataType.NUMERIC.nullable(false).defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Количество бонусных баллов");
+    public final TableField<ClientRecord, BigDecimal> BONUS_COUNT = createField(DSL.name("bonus_count"), SQLDataType.NUMERIC.defaultValue(DSL.field("0", SQLDataType.NUMERIC)), this, "Количество бонусных баллов");
 
     /**
      * The column <code>shop.client.birthday</code>. Дата рождения
      */
-    public final TableField<ClientRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATE.nullable(false), this, "Дата рождения");
+    public final TableField<ClientRecord, LocalDate> BIRTHDAY = createField(DSL.name("birthday"), SQLDataType.LOCALDATE, this, "Дата рождения");
 
     private Client(Name alias, Table<ClientRecord> aliased) {
         this(alias, aliased, null);

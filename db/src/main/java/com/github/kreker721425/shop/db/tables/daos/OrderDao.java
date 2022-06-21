@@ -116,4 +116,18 @@ public class OrderDao extends DAOImpl<OrderRecord, com.github.kreker721425.shop.
     public List<com.github.kreker721425.shop.db.tables.pojos.Order> fetchByBonusCount(BigDecimal... values) {
         return fetch(Order.ORDER.BONUS_COUNT, values);
     }
+
+    /**
+     * Fetch records that have <code>user_id BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.github.kreker721425.shop.db.tables.pojos.Order> fetchRangeOfUserId(Long lowerInclusive, Long upperInclusive) {
+        return fetchRange(Order.ORDER.USER_ID, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>user_id IN (values)</code>
+     */
+    public List<com.github.kreker721425.shop.db.tables.pojos.Order> fetchByUserId(Long... values) {
+        return fetch(Order.ORDER.USER_ID, values);
+    }
 }

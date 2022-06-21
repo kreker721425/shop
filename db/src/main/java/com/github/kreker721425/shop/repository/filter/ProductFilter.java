@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Builder
 public class ProductFilter extends Filter {
     private String id;
+    private String article;
     private String name;
     private String count;
     private String description;

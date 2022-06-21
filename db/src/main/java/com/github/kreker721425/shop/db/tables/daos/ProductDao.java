@@ -61,6 +61,20 @@ public class ProductDao extends DAOImpl<ProductRecord, com.github.kreker721425.s
     }
 
     /**
+     * Fetch records that have <code>article BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchRangeOfArticle(String lowerInclusive, String upperInclusive) {
+        return fetchRange(Product.PRODUCT.ARTICLE, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>article IN (values)</code>
+     */
+    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchByArticle(String... values) {
+        return fetch(Product.PRODUCT.ARTICLE, values);
+    }
+
+    /**
      * Fetch records that have <code>name BETWEEN lowerInclusive AND upperInclusive</code>
      */
     public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchRangeOfName(String lowerInclusive, String upperInclusive) {
@@ -77,14 +91,14 @@ public class ProductDao extends DAOImpl<ProductRecord, com.github.kreker721425.s
     /**
      * Fetch records that have <code>count BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchRangeOfCount(Long lowerInclusive, Long upperInclusive) {
+    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchRangeOfCount(Integer lowerInclusive, Integer upperInclusive) {
         return fetchRange(Product.PRODUCT.COUNT, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>count IN (values)</code>
      */
-    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchByCount(Long... values) {
+    public List<com.github.kreker721425.shop.db.tables.pojos.Product> fetchByCount(Integer... values) {
         return fetch(Product.PRODUCT.COUNT, values);
     }
 

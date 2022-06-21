@@ -4,6 +4,7 @@ import com.github.kreker721425.shop.db.tables.daos.OrderDao;
 import com.github.kreker721425.shop.db.tables.pojos.Order;
 import com.github.kreker721425.shop.repository.filter.OrderFilter;
 import com.github.kreker721425.shop.utils.PaginationUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jooq.Condition;
 import org.jooq.Configuration;
 import org.jooq.Record;
@@ -44,9 +45,14 @@ public class OrderRepository extends OrderDao {
 
     private SelectQuery<Record> buildQuery(OrderFilter filter) {
         var query = using(configuration()).selectQuery();
-        query.addFrom(ORDER
-                .join(CLIENT)
-                .on(ORDER.CLIENT_ID.eq(CLIENT.ID)));
+        if (StringUtils.isNotBlank(filter.getClientPhone())) {
+            query.addFrom(ORDER
+                    .join(CLIENT)
+                    .on(ORDER.CLIENT_ID.eq(CLIENT.ID)));
+        } else {
+            query.addFrom(ORDER);
+        }
+
         var conditionsList = getConditions(filter);
         if (!conditionsList.isEmpty()) {
             query.addConditions(conditionsList);
@@ -59,14 +65,14 @@ public class OrderRepository extends OrderDao {
         if (Objects.nonNull(filter.getId())) {
             conditions.add(PaginationUtils.getOrLikeConditionForNumeric(ORDER.ID, filter.getId()));
         }
-        if (Objects.nonNull(filter.getClientName())) {
-            conditions.add(PaginationUtils.getOrLikeCondition(CLIENT.NAME, filter.getClientName()));
+        if (StringUtils.isNotBlank(filter.getClientPhone())) {
+            conditions.add(PaginationUtils.getOrLikeCondition(CLIENT.PHONE, filter.getClientPhone()));
         }
         if (Objects.nonNull(filter.getCreatedAtStart())) {
-            conditions.add(ORDER.CREATED_AT.greaterOrEqual(filter.getCreatedAtStart().atTime(LocalTime.MIN)));
+            conditions.add(ORDER.CREATED_AT.greaterOrEqual(filter.getCreatedAtStart()));
         }
         if (Objects.nonNull(filter.getCreatedAtStart())) {
-            conditions.add(ORDER.CREATED_AT.lessOrEqual(filter.getCreatedAtEnd().atTime(LocalTime.MAX)));
+            conditions.add(ORDER.CREATED_AT.lessOrEqual(filter.getCreatedAtEnd()));
         }
         return conditions;
     }

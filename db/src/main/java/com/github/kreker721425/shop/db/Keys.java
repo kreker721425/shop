@@ -48,6 +48,7 @@ public class Keys {
 
     public static final ForeignKey<HistoryRecord, UsersRecord> HISTORY__USER_ID__FK = Internal.createForeignKey(History.HISTORY, DSL.name("user_id__fk"), new TableField[] { History.HISTORY.USER_ID }, Keys.USERS_ID_PK, new TableField[] { Users.USERS.ID }, true);
     public static final ForeignKey<OrderRecord, ClientRecord> ORDER__CLIENT_ID__FK = Internal.createForeignKey(Order.ORDER, DSL.name("client_id__fk"), new TableField[] { Order.ORDER.CLIENT_ID }, Keys.CLIENT_ID_PK, new TableField[] { Client.CLIENT.ID }, true);
+    public static final ForeignKey<OrderRecord, UsersRecord> ORDER__USER_ID__FK = Internal.createForeignKey(Order.ORDER, DSL.name("user_id__fk"), new TableField[] { Order.ORDER.USER_ID }, Keys.USERS_ID_PK, new TableField[] { Users.USERS.ID }, true);
     public static final ForeignKey<ProductOrderRecord, OrderRecord> PRODUCT_ORDER__ORDER_ID__FK = Internal.createForeignKey(ProductOrder.PRODUCT_ORDER, DSL.name("order_id__fk"), new TableField[] { ProductOrder.PRODUCT_ORDER.ORDER_ID }, Keys.ORDER_ID_PK, new TableField[] { Order.ORDER.ID }, true);
     public static final ForeignKey<ProductOrderRecord, ProductRecord> PRODUCT_ORDER__PRODUCT_ID__FK = Internal.createForeignKey(ProductOrder.PRODUCT_ORDER, DSL.name("product_id__fk"), new TableField[] { ProductOrder.PRODUCT_ORDER.PRODUCT_ID }, Keys.PRODUCT_ID_PK, new TableField[] { Product.PRODUCT.ID }, true);
 }

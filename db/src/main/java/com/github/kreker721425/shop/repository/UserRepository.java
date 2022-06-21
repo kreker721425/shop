@@ -59,7 +59,7 @@ public class UserRepository extends UsersDao {
             conditions.add(PaginationUtils.getOrLikeCondition(USERS.NAME, filter.getName()));
         }
         if (Objects.nonNull(filter.getLogin())) {
-            conditions.add(USERS.LOGIN.eq(filter.getLogin()));
+            conditions.add(PaginationUtils.getOrLikeCondition(USERS.LOGIN, filter.getLogin()));
         }
         if (Objects.nonNull(filter.getRole())) {
             conditions.add(USERS.ROLE.eq(filter.getRole()));
